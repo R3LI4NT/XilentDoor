@@ -28,7 +28,7 @@ Es parte de la familia <a href="https://github.com/R3LI4NT/XilentLocker">XilentL
       <img width="906" height="127" alt="1" src="https://github.com/user-attachments/assets/899fbcd5-a4bc-4e7e-a38d-12f2a8615b60" />
 
 - [x] **Fingerprinting:** Recopila información básica del sistema donde se ejecuta el backdoor. Esta funcionalidad se suele usar para identificar la máquina víctima o confirmar la infección exitosa antes de enviar datos al atacante.
-      <img width="635" height="212" alt="2" src="https://github.com/user-attachments/assets/47943f46-e5b6-4fcd-a87a-25f74a346478" />
+      <img width="603" height="221" alt="2" src="https://github.com/user-attachments/assets/e15ade45-30cc-46a5-ba86-ac91e0acf4a3" />
 
 <h1 align="center"></h1>
 
