@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/b354f36f-111c-407c-a195-3a3a7f3d6a8c" alt="XilentDoor" Logo" />
+  <img src="https://github.com/user-attachments/assets/ac3541ca-952e-4511-a259-764834982f8d" alt="XilentDoor" Logo" />
 </p>
 
 <p align="center">
