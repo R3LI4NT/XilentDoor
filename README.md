@@ -30,9 +30,9 @@ Es parte de la familia <a href="https://github.com/R3LI4NT/XilentLocker">XilentL
 
 ### Modo de uso
 
-- Tener instalado el SDK de .NET: https://dotnet.microsoft.com/en-us/download
+- 1. Tener instalado el SDK de .NET: https://dotnet.microsoft.com/en-us/download
 
-- Compilar el backdoor con los siguientes comandos:
+- 2. Compilar el backdoor con los siguientes comandos:
 ```
 dotnet build -c Release <- el .exe se guarda en XilentDoor\bin\Release\net6.0\XilentDoor.exe
 dotnet run <- Ejecuta el Backdoor
