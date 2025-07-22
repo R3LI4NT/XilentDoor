@@ -4,7 +4,7 @@
 
 <p align="center">
     <a href="https://python.org">
-    <img src="https://img.shields.io/badge/C#-green.svg">
+    <img src="https://img.shields.io/badge/Python-3-green.svg">
   </a>
     <img src="https://img.shields.io/badge/Release-1.2-blue.svg">
   </a>
