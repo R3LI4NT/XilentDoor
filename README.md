@@ -26,3 +26,19 @@ Es parte de la familia <a href="https://github.com/R3LI4NT/XilentLocker">XilentL
 
 - [x] **Persistencia:** El Backdoor se auto-copia en la ruta `AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup`, lo que permite que se ejecute automáticamente cada vez que el sistema se reinicie.
       <img width="906" height="127" alt="1" src="https://github.com/user-attachments/assets/899fbcd5-a4bc-4e7e-a38d-12f2a8615b60" />
+
+
+### Modo de uso
+
+1- Tener instalado el SDK de .NET: https://dotnet.microsoft.com/en-us/download
+
+2- Compilar el backdoor con los siguientes comandos:
+```
+dotnet build -c Release <- el .exe se guarda en XilentDoor\bin\Release\net6.0\XilentDoor.exe
+dotnet run <- Ejecuta el Backdoor
+```
+
+Con el siguiente comando compilan el Backdoor con todas las dependencias, significa que podrán ejecutar el programa en cualquier directorio:
+```
+dotnet publish -c Release -r win-x64 --self-contained true /p:PublishSingleFile=true /p:IncludeAllContentForSelfExtract=true
+```
