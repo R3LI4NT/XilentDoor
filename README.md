@@ -47,6 +47,10 @@ Con el siguiente comando compilan el Backdoor con todas las dependencias, signif
 dotnet publish -c Release -r win-x64 --self-contained true /p:PublishSingleFile=true /p:IncludeAllContentForSelfExtract=true
 ```
 
+- (3) En el método Main (archivo `Program.cs`) modifican la IP y puerto del listener (máquina atacante).
+  <img width="815" height="159" alt="3" src="https://github.com/user-attachments/assets/9ba34ae3-382d-4609-a51b-c8bba95610d5" />
+
+
 <h1 align="center"></h1>
 
 Correo de contacto:
