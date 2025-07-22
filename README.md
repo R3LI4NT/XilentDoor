@@ -15,3 +15,6 @@
 <h1 align="center"></h1>
 
 ### Acerca de XilentDoor
+
+
+Es parte de la familia <a href="https://github.com/R3LI4NT/XilentLocker">XilentLocker</a> y <a href="https://github.com/R3LI4NT/XilentRAT">XilentRAT</a>.
