@@ -74,7 +74,7 @@ En la máquina atacante (Kali Linux), configure Netcat para escuchar en el puert
 
 En las pruebas realizadas con el backdoor, los antivirus externos no detectan su presencia. Sin embargo, Microsoft Defender SmartScreen actúa como un filtro reputacional, bloqueando ejecutables nuevos, no firmados o con poca distribución.
 
-<img width="667" height="624" alt="20240712112504846_EN_1" src="https://github.com/user-attachments/assets/e30c4b2a-3309-4ff7-96e4-afefe45fe131" />
+<img width="450" height="424" alt="20240712112504846_EN_1" src="https://github.com/user-attachments/assets/e30c4b2a-3309-4ff7-96e4-afefe45fe131" />
 
 Para evadir SmartScreen, podemos firmar el ejecutable con un certificado digital (lo ideal es adquirir un certificado de firma de código, Code Signing Certificate) o bien empaquetar el instalador (.EXE/.MSI) y modificar sus metadatos para reducir su detectabilidad.
 
