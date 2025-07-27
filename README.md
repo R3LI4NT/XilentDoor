@@ -127,8 +127,11 @@ Filename: "{app}\XilentDoor.exe"; Description: "Ejecutando Windows Repair..."; F
 
 En el menu de Inno le damos a `Build` **->** `Compile`.
 
-<img width="1365" height="621" alt="evasion-installerSetUp" src="https://github.com/user-attachments/assets/0af34abb-d04b-4a7b-8374-f96c6759b156" />
+<img width="1365" height="621" alt="evasion-installerSetUp" src="https://github.com/user-attachments/assets/80557abf-d0f2-4046-9469-e441f9e99e22" />
 
+Nos dejará el instalador "legítimo", pero detrás se ejecutará el backdoor y en el Administrador de Tareas aparecerá como una herramienta de reparación de Windows.
+
+<img width="818" height="398" alt="evasion-installerSetUp-2" src="https://github.com/user-attachments/assets/6511756f-cd85-418c-8577-baa644653753" />
 
 <h1 align="center"></h1>
 
