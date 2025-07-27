@@ -79,9 +79,22 @@ En las pruebas realizadas con el backdoor, los antivirus externos no detectan su
 Para evadir SmartScreen, podemos firmar el ejecutable con un certificado digital (lo ideal es adquirir un certificado de firma de código, Code Signing Certificate) o bien empaquetar el instalador (.EXE/.MSI) y modificar sus metadatos para reducir su detectabilidad.
 
 Primero debemos de modificar los metadatos y para ellos podemos usar herramientas como <a href="https://www.angusj.com/resourcehacker/">Resource Hacker</a> o <a href="https://github.com/electron/rcedit/releases">Recedit</a>.
+```
+rcedit-x64.exe XilentDoor.exe --set-version-string "CompanyName" "Microsoft Corporation" --set-version-string "ProductName" "Windows Tool" --set-version-string "FileDescription" "Windows Repair" --set-file-version "1.3.5.0" --set-product-version "1.2.5.0" --set-icon "icon.ico"
+```
+
+| PARÁMETRO | DESCRIPCIÓN |
+| ------------- | ------------- |
+| CompanyName | Nombre de la empresa/organización falsa. |
+| ProductName | Nombre del producto. |
+| FileDescription | Descripción que aparece en el taskmanager (Administrador de Tareas). |
+| --set-file-version | Versión técnica del archivo. |
+| --set-product-version | Versión del producto general. |
+| --set-icon | Icono visual. |
 
 <img width="1362" height="562" alt="evasion-metada" src="https://github.com/user-attachments/assets/c7a9ad56-1281-48d0-abf2-56d03128851a" />
 
+Luego empaquetaremos el .EXE/.MSI en un installer utilizando herramientas como <a href="https://jrsoftware.org/isdl.php">Inno SetUp</a> o <a href="https://nsis.sourceforge.io/Main_Page">NSIS</a>. En mi caso utilizaré Inno, 
 
 <h1 align="center"></h1>
 
