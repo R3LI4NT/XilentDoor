@@ -18,7 +18,7 @@
 
 XilentDoor es un backdoor escrito en C# orientado a sistemas Windows. Un backdoor es un tipo de malware diseñado para abrir una puerta trasera permanente en el equipo comprometido, permitiendo al atacante acceder y controlar el sistema de forma sigilosa. 
 
-Es parte de la familia <a href="https://github.com/R3LI4NT/XilentLocker">XilentLocker</a> y <a href="https://github.com/R3LI4NT/XilentRAT">XilentRAT</a>.
+Es parte de la familia <a href="https://github.com/R3LI4NT/XilentLocker">XilentLocker</a>, <a href="https://github.com/R3LI4NT/XilentRAT">XilentRAT</a> y <a href="https://github.com/R3LI4NT/XilentLogger">XilentLogger</a>
 
 <h1 align="center"></h1>
 
