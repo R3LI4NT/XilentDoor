@@ -22,6 +22,14 @@ Es parte de la familia <a href="https://github.com/R3LI4NT/XilentLocker">XilentL
 
 <h1 align="center"></h1>
 
+### Características de XilentDoor `1.1`:
+
+- [x] **Shell:** Se desarrollo una shell GUI en Python para el backdoor. Puede ser utilizada por otros malwares.
+
+<img width="1326" height="719" alt="XilentShell" src="https://github.com/user-attachments/assets/ffa1e5ff-b574-4fb6-a99d-2240bfd0ebc3" />
+
+<h1 align="center"></h1>
+
 ### Características de XilentDoor `1.0`:
 
 - [x] **Persistencia:** El Backdoor se auto-copia en la ruta `AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup`, lo que permite que se ejecute automáticamente cada vez que el sistema se reinicie.
