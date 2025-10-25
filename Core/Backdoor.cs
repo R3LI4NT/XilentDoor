@@ -92,8 +92,10 @@ namespace XilentDoor.Core
 
         private void ShowPrompt()
         {
-            writer.Write("XilentDoor > ");
-            writer.Flush(); 
+            string blueText = "\u001b[34m";
+            string resetText = "\u001b[0m";
+            writer.Write($"{blueText}XilentDoor > {resetText}");
+            writer.Flush();
         }
     }
 }
