@@ -24,8 +24,8 @@ Es parte de la familia <a href="https://github.com/R3LI4NT/XilentLocker">XilentL
 
 ### Características de XilentDoor:
 
-- [x] **Persistencia:** El Backdoor se auto-copia en la ruta `AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup`, lo que permite que se ejecute automáticamente cada vez que el sistema se reinicie.
-      <img width="906" height="127" alt="1" src="https://github.com/user-attachments/assets/899fbcd5-a4bc-4e7e-a38d-12f2a8615b60" />
+- [x] **Persistencia:** El Backdoor se auto-copia en la ruta `AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup` y se agrega al registro Windows `Software\Microsoft\Windows\CurrentVersion\Run`; lo que permite que se ejecute automáticamente cada vez que el sistema se reinicie.
+      <img width="1173" height="537" alt="persistence" src="https://github.com/user-attachments/assets/13799961-7f73-4b87-9df8-f82183bc6fa1" />
 
 - [x] **Fingerprinting:** Recopila información básica del sistema donde se ejecuta el backdoor. Esta funcionalidad se suele usar para identificar la máquina víctima o confirmar la infección exitosa antes de enviar datos al atacante.
       <img width="603" height="221" alt="2" src="https://github.com/user-attachments/assets/e15ade45-30cc-46a5-ba86-ac91e0acf4a3" />
