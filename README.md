@@ -33,8 +33,7 @@ Es parte de la familia <a href="https://github.com/R3LI4NT/XilentLocker">XilentL
 - [x] **Shell:** Se desarrollo una shell GUI en Python para el backdoor. Puede ser utilizada por otros malwares.
       <img width="1176" height="719" alt="XilentShell" src="https://github.com/user-attachments/assets/d498d58b-dbe7-46f8-8751-03452e41536b" />
 
-- [x] **AutoReconnect:** El backdoor se auto-reconecta si pierde la conexión. En el script `Backdoor.cs` se agrega un bucle infinito en el método `Start`.
-
+- [x] **AutoReconnect:** El backdoor se auto-reconecta si pierde la conexión. En el script `Backdoor.cs` se agrega un bucle infinito en el método `Start`. 
       <img width="809" height="264" alt="autoconnect" src="https://github.com/user-attachments/assets/41f5c026-f6c1-4f19-b696-116ddc46d8fe" />
 
 
