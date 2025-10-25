@@ -35,7 +35,7 @@ Es parte de la familia <a href="https://github.com/R3LI4NT/XilentLocker">XilentL
 
 - [x] **AutoConnect:** El backdoor se auto-reconecta si pierde la conexión. En el script `Backdoor.cs` se agrega un bucle infinito en el método `Start`. 
       <img width="809" height="264" alt="autoconnect" src="https://github.com/user-attachments/assets/41f5c026-f6c1-4f19-b696-116ddc46d8fe" />
-      <img width="690" height="329" alt="autoconnect" src="https://github.com/user-attachments/assets/aabbc331-a7bb-45dd-951b-4b2853a95ae2" />
+      <img width="690" height="329" alt="autoconnect" src="https://github.com/user-attachments/assets/2b3a0f72-ac2d-4cc4-b8b2-27e68d839df9" />
 
 <h1 align="center"></h1>
 
