@@ -37,6 +37,9 @@ Es parte de la familia <a href="https://github.com/R3LI4NT/XilentLocker">XilentL
       <img width="809" height="264" alt="autoconnect" src="https://github.com/user-attachments/assets/41f5c026-f6c1-4f19-b696-116ddc46d8fe" />
       <img width="690" height="329" alt="autoconnect" src="https://github.com/user-attachments/assets/2b3a0f72-ac2d-4cc4-b8b2-27e68d839df9" />
 
+- [x] **PowerScripts:** Se añadieron <a href="https://github.com/R3LI4NT/XilentDoor/tree/main/PowerScripts">scritps</a> hechos en PowerShell para que pueda deshabilitar procesos y defensas en el sistema remoto. 
+      
+
 <h1 align="center"></h1>
 
 ### Modo de uso
