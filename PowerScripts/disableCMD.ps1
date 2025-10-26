@@ -1,0 +1,1 @@
+powershell -Command "if (-not (Test-Path 'HKCU:\\Software\\Policies\\Microsoft\\Windows\\System')) { New-Item -Path 'HKCU:\\Software\\Policies\\Microsoft\\Windows\\System' -Force }; Set-ItemProperty -Path 'HKCU:\\Software\\Policies\\Microsoft\\Windows\\System' -Name 'DisableCMD' -Value 1"

