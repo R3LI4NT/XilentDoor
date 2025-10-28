@@ -40,7 +40,7 @@ Es parte de la familia <a href="https://github.com/R3LI4NT/XilentLocker">XilentL
 - [x] **PowerScripts:** Se añadieron <a href="https://github.com/R3LI4NT/XilentDoor/tree/main/PowerScripts">scritps</a> hechos en PowerShell para que pueda deshabilitar procesos y defensas en el sistema remoto.
 
 - [x] **ClickFix:** Se diseño un sitio (<a href="https://github.com/R3LI4NT/XilentDoor/blob/main/ClickFix/index.html">index.html</a>) de verificación falso para distribuir malware utilizado la tecnica de <a href="https://github.com/R3LI4NT/XilentDoor/blob/main/ClickFix/readme.md">ClickFix</a>.
-    <img width="1350" height="630" alt="ClickFix" src="https://github.com/user-attachments/assets/0cbf2cab-a28b-41c8-b4e4-767e08e92677" />
+    <img width="1349" height="632" alt="ClickFix" src="https://github.com/user-attachments/assets/d12373b7-a87a-4dcf-8034-dc9e883da6c7" />
 
 <h1 align="center"></h1>
 
