@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
@@ -8,6 +8,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>ab38a795-9f69-413c-81dc-0ed0c91b679c</UserSecretsId>
     <ApplicationIcon>icon.ico</ApplicationIcon>
+    <!--<ApplicationManifest>app.manifest</ApplicationManifest> SI QUIEREN QUE SE EJECUTE COMO ADMIN, DESMARQUEN ESTO--> 
   </PropertyGroup>
 
 </Project>
