@@ -1,6 +1,6 @@
 <p align="center">
   <img src="https://github.com/user-attachments/assets/ac3541ca-952e-4511-a259-764834982f8d" alt="XilentDoor" Logo" />
-  <img width="1774" height="887" alt="banner" src="https://github.com/user-attachments/assets/a7d26e8f-baae-4029-8915-513ccec04d0c" />
+  <img width="774" height="auto" alt="banner" src="https://github.com/user-attachments/assets/a7d26e8f-baae-4029-8915-513ccec04d0c" />
 </p>
 
 
